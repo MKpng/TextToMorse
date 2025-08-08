@@ -3,6 +3,7 @@ import winsound
 import time
 from tkinter import *
 from tkinter import ttk
+import sv_ttk
 
 def get_morse():
     value = morsed.get()
@@ -23,19 +24,23 @@ def get_morse():
             time.sleep(1.05)
 
 root = Tk()
+root.title("ToMorse")
 frame = ttk.Frame(root)
-window_width = 600
-window_height = 600
+window_width = 500
+window_height = 250
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 x = (screen_width // 2) - (window_width // 2)
 y = (screen_height // 2) - (window_height // 2)
 root.geometry(f"{window_width}x{window_height}+{x}+{y}")
-frame.grid()
+frame.grid(column=3, row=3)
 
-ttk.Label(frame, text="Covert the follow sentence to MORSE").grid(columnspan=3, row=0)
-morsed = ttk.Entry()
-morsed.grid(column=2, row=1)
-click = ttk.Button(text="Convert", command=get_morse)
-click.grid(column=2, row=2)
+input_label = ttk.Label(frame, text="Covert your sentence to MORSE", font=("Helvetica", 12, "bold"))
+input_label.grid(column=2, row=0, pady=(50, 30), padx=130)
+morsed = ttk.Entry(width=35)
+morsed.grid(column=3, row=4, pady=(0, 30))
+click = ttk.Button(text="PLAY", command=get_morse)
+click.grid(column=3, row=5)
+
+sv_ttk.set_theme("dark")
 root.mainloop()
