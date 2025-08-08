@@ -1,0 +1,4 @@
+# Required packages for the project
+# To install: pip install -r requirements.txt
+
+sv_ttk==2.6.1
